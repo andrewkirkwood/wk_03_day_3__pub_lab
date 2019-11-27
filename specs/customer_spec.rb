@@ -25,8 +25,10 @@ class CustomerTest < MiniTest::Test
   def test_returns_customer_drink_count()
     assert_equal(0, @customer.drink_count)
   end
-  # def test_customer_buys_drink()
-  #   @customer.buys_drink("Whiskey")
-  #   assert_equal(1, @customer.)
-  # end
+
+  def test_customer_buys_drink()
+    @customer.buys_drink(@drink)
+    assert_equal(1, @customer.drink_count)
+    assert_equal(8, @customer.wallet)
+  end
 end
