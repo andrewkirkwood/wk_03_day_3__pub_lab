@@ -31,4 +31,8 @@ class Pub
     end
   end
 
+  def calculate_total_stock_value(drink,drink1,drink2)
+    return (@drinks[:whiskey] * drink.price) + (@drinks[:beer] * drink1.price) + (@drinks[:gin_and_tonic] * drink2.price)
+  end
+
 end

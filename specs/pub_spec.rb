@@ -15,6 +15,8 @@ class PubTest < MiniTest::Test
     drinks = { beer: 10 , whiskey: 15, gin_and_tonic: 20}
     @pub = Pub.new("The Typing Wrists", 50, drinks)
     @drink = Drink.new("Whiskey", 2, 5)
+    @drink1 = Drink.new("Beer", 3, 3)
+    @drink2 = Drink.new("Gin and Tonic", 4, 4)
     @customer1 = Customer.new("Jim", 10, 25, 55)
     @customer2 = Customer.new("Dave", 20, 17, 10)
     @customer3 = Customer.new("Bob", 30, 23, 5)
@@ -52,5 +54,9 @@ class PubTest < MiniTest::Test
 
   def test_pub_refuses_a_sale
     assert_equal("You can buy a drink!", @pub.do_i_refuse_sale(@customer3))
+  end
+
+  def test_stock_value_returns_total
+    assert_equal(140, @pub.calculate_total_stock_value(@drink,@drink1,@drink2))
   end
 end
