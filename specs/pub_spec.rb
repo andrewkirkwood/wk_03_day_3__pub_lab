@@ -12,7 +12,7 @@ require_relative('../food')
 class PubTest < MiniTest::Test
 
   def setup()
-    drinks = ["Beer", "Whiskey", "Gin and Tonic"]
+    drinks = { beer: 10 , whiskey: 15, gin_and_tonic: 20}
     @pub = Pub.new("The Typing Wrists", 50, drinks)
     @drink = Drink.new("Whiskey", 2, 5)
     @customer1 = Customer.new("Jim", 10, 25, 55)
