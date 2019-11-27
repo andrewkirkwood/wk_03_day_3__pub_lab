@@ -21,5 +21,9 @@ class PubTest < MiniTest::Test
     assert_equal(50, @pub.till)
   end
 
+  def test_pub_till_amount_can_be_increased()
+    @pub.increase_till_amount(2)
+    assert_equal(52, @pub.till)
+  end
 
 end
