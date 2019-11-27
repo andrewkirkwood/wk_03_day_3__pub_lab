@@ -5,7 +5,6 @@ class Food
     @name = name
     @price = price
     @rejuvenation_level = rejuvenation_level
-
   end
 
 end

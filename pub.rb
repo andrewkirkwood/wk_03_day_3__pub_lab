@@ -9,8 +9,8 @@ class Pub
     @drinks = drinks
   end
 
-  def increase_till_amount(drink)
-    @till += drink.price
+  def increase_till_amount(item)
+    @till += item.price
   end
 
   def verify_age(customer)

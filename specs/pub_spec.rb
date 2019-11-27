@@ -6,6 +6,8 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 require_relative('../pub')
 require_relative('../drink')
 require_relative('../customer')
+require_relative('../food')
+
 
 class PubTest < MiniTest::Test
 
@@ -16,6 +18,7 @@ class PubTest < MiniTest::Test
     @customer1 = Customer.new("Jim", 10, 25, 55)
     @customer2 = Customer.new("Dave", 20, 17, 10)
     @customer3 = Customer.new("Bob", 30, 23, 5)
+    @food = Food.new("Pizza", 5, 2)
 
   end
 
@@ -27,9 +30,14 @@ class PubTest < MiniTest::Test
     assert_equal(50, @pub.till)
   end
 
-  def test_pub_till_amount_can_be_increased()
+  def test_pub_till_amount_can_be_increased__for_drink()
     @pub.increase_till_amount(@drink)
     assert_equal(52, @pub.till)
+  end
+
+  def test_pub_till_amount_can_be_increased__for_food()
+    @pub.increase_till_amount(@food)
+    assert_equal(55, @pub.till)
   end
 
   def test_to_verify_customer_age_is_above_18
