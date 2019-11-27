@@ -13,7 +13,10 @@ class PubTest < MiniTest::Test
     drinks = ["Beer", "Whiskey", "Gin and Tonic"]
     @pub = Pub.new("The Typing Wrists", 50, drinks)
     @drink = Drink.new("Whiskey", 2, 5)
-    @customer = Customer.new("Jim", 10, 25, 55)
+    @customer1 = Customer.new("Jim", 10, 25, 55)
+    @customer2 = Customer.new("Dave", 20, 17, 10)
+    @customer3 = Customer.new("Bob", 30, 23, 5)
+
   end
 
   def test_returns_pub_name()
@@ -30,11 +33,16 @@ class PubTest < MiniTest::Test
   end
 
   def test_to_verify_customer_age_is_above_18
-    assert_equal(true, @pub.verify_age(@customer))
+    assert_equal(true, @pub.verify_age(@customer1))
+    assert_equal(false, @pub.verify_age(@customer2))
+
   end
 
   def test_pub_refuses_sale_if_drunkeness_too_high
-    assert_equal(true, @pub.is_customer_too_drunk(@customer))
+    assert_equal(true, @pub.is_customer_too_drunk(@customer1))
   end
 
+  def test_pub_refuses_a_sale
+    assert_equal("You can buy a drink!", @pub.do_i_refuse_sale(@customer3))
+  end
 end
