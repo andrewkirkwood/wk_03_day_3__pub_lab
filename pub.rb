@@ -10,8 +10,8 @@ class Pub
   end
 
   def increase_till_amount(drink)
-    @till += 2
-  end 
+    @till += drink.price
+  end
 
 
 end
