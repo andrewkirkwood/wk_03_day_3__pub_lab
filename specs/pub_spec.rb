@@ -62,7 +62,7 @@ class PubTest < MiniTest::Test
   def test_pub_sell_drink_to_customer
     @pub.sell_drink_to_customer(@customer3, @drink)
     assert_equal(52, @pub.till)
-    assert_equal(28, @pub.check_customer_wallet_amount(@customer3))
+    assert_equal(28, @customer3.wallet)
     assert_equal(10, @pub.check_customer_drunkeness_level(@customer3))
   end
 
