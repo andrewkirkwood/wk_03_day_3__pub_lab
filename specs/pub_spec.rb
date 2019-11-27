@@ -45,15 +45,25 @@ class PubTest < MiniTest::Test
   def test_to_verify_customer_age_is_above_18
     assert_equal(true, @pub.verify_age(@customer1))
     assert_equal(false, @pub.verify_age(@customer2))
-
   end
 
   def test_pub_refuses_sale_if_drunkeness_too_high
     assert_equal(true, @pub.is_customer_too_drunk(@customer1))
   end
 
-  def test_pub_refuses_a_sale
-    assert_equal("You can buy a drink!", @pub.do_i_refuse_sale(@customer3))
+  def test_check_customer_drunkeness_level
+    assert_equal(5, @pub.check_customer_drunkeness_level(@customer3))
+  end
+
+  def test_check_customer_wallet_amount
+    assert_equal(30, @pub.check_customer_wallet_amount(@customer3))
+  end
+
+  def test_pub_sell_drink_to_customer
+    @pub.sell_drink_to_customer(@customer3, @drink)
+    assert_equal(52, @pub.till)
+    assert_equal(28, @pub.check_customer_wallet_amount(@customer3))
+    assert_equal(10, @pub.check_customer_drunkeness_level(@customer3))
   end
 
   def test_stock_value_returns_total

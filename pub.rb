@@ -23,9 +23,19 @@ class Pub
     return false if customer.drunkeness < 49
   end
 
-  def do_i_refuse_sale(customer)
+  def check_customer_drunkeness_level(customer)
+    return customer.drunkeness
+  end
+
+  def check_customer_wallet_amount(customer)
+    return customer.wallet
+  end
+
+  def sell_drink_to_customer(customer, drink)
     if verify_age(customer) == true && is_customer_too_drunk(customer) == false
-      return "You can buy a drink!"
+      increase_till_amount(drink)
+      customer.buys_drink(drink)
+      customer.update_drunkeness(drink)
     else
       return "You can't buy a drink"
     end

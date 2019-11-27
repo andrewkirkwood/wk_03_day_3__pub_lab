@@ -17,6 +17,9 @@ class Customer
   def buys_drink(drink)
     @drinks_drank.push(drink.name)
     @wallet -= drink.price
+  end
+
+  def update_drunkeness(drink)
     @drunkeness += drink.alchohol_level
   end
 

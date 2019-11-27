@@ -25,6 +25,10 @@ class CustomerTest < MiniTest::Test
     assert_equal(10, @customer.wallet)
   end
 
+  def test_update_drunkeness_for_customer_name
+    assert_equal(60, @customer.update_drunkeness(@drink))
+  end
+
   def test_returns_customer_drink_count()
     assert_equal(0, @customer.drink_count)
   end
@@ -33,7 +37,6 @@ class CustomerTest < MiniTest::Test
     @customer.buys_drink(@drink)
     assert_equal(1, @customer.drink_count)
     assert_equal(8, @customer.wallet)
-    assert_equal(60, @customer.drunkeness)
   end
 
   def test_return_customer_age
